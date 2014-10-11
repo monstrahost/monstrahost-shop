@@ -1,0 +1,24 @@
+.product-price {
+	display: block;
+	position: absolute;
+	right: 20px;
+	float: right;
+	font-size: 1.3em;
+	color: #fff;
+	background-color: #969696;
+	padding: 0px 8px;
+	opacity: 0.8;
+}
+
+.product-title {
+	display: block;
+	position: absolute;
+	left: 20px;
+	float: left;
+	font-size: 1.3em;
+	color: #fff;
+	background-color: #969696;
+	padding: 0px 8px;
+	opacity: 0.8;
+	
+}
