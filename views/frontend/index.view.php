@@ -36,7 +36,7 @@
 	<input type="hidden" name="shipping2" value="<?php echo Html::toText($product['shipping2']); ?>">
 	<input type="hidden" name="currency_code" value="<?php echo Snippet::get('shop-currency'); ?>">
 	<input type="hidden" name="return" value="<?php echo Page::url(); ?>shop">
-	<input type="hidden" name="shopping" value="<?php echo Page::url(); ?>shop">
+	<input type="hidden" name="cancel_return" value="<?php echo Page::url(); ?>shop">
 	<input type="hidden" name="no_shipping" value="2">
 	<input type="hidden" name="undefined_quantity" value="1">
 	<input type="submit" class="btn btn-info pull-right" name="submit"  value="Add to Cart" >
