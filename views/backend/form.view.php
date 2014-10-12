@@ -13,6 +13,7 @@
     <div class="col-md-4">
     <label for="shop_image"><?php echo __('Image', 'shop'); ?></label>
     <input type="text" name="shop_image" class="form-control" value="<?php echo $image; ?>" />
+    <span class="help-block"><?php echo __('URL Format', 'shop'); ?></span>
     </div>
     <div class="col-md-2">
     <label for="shop_price"><?php echo __('Price', 'shop'); ?></label>
@@ -21,6 +22,7 @@
     <div class="col-md-2">
     <label for="shop_sku"><?php echo __('SKU', 'shop'); ?></label>
     <input type="text" name="shop_sku" class="form-control" value="<?php echo $sku; ?>" />
+    <span class="help-block"><?php echo __('SKU help', 'shop'); ?></span>
     </div>
     <div class="col-md-2">
     <label for="shop_shipping"><?php echo __('Shipping', 'shop'); ?></label>
@@ -29,6 +31,7 @@
     <div class="col-md-2">
     <label for="shop_shipping2"><?php echo __('Ship Additional Items', 'shop'); ?></label>
     <input type="text" name="shop_shipping2" class="form-control" value="<?php echo $shipping2; ?>" />
+    <span class="help-block"><?php echo __('Additional Items Shipping', 'shop'); ?></span>
     </div>
 	</div>
 	<br />
