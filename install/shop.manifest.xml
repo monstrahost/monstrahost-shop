@@ -6,6 +6,6 @@
     <plugin_name>Shop</plugin_name>
     <plugin_description>Shop plugin for Monstra</plugin_description>
     <plugin_version>0.1a</plugin_version>
-    <plugin_author>QuasiGenius</plugin_author>
-    <plugin_author_uri>http://www.quasigenius.com/</plugin_author_uri>
+    <plugin_author>MonstraHost</plugin_author>
+    <plugin_author_uri>http://www.monstrahost.com/</plugin_author_uri>
 </root>
