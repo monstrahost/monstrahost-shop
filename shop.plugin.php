@@ -15,17 +15,20 @@
     Plugin::register( __FILE__,                    
                     __('Shop', 'shop'),
                     __('Shop plugin for Monstra', 'shop'),  
-                    '0.1a',
-                    'QuasiGenius',                 
-                    'http://www.quasigenius.com/',
+                    '0.2a',
+                    'MonstraHost',                 
+                    'http://www.monstrahost.com/',
                     'shop');
 
     
 	// Load CSS & JS
-	//Javascript::add('plugins/shop/js/minicart-3.0.5.min.js','frontend',3);
+	//Javascript::add('plugins/shop/js/minicart-3.0.5.min.js','frontend',15);
 	// Javascript::add('plugins/shop/js/shop.js','frontend',11);
 	
 	Stylesheet::add('plugins/shop/css/shop_front.css','frontend',13);
+
+	Javascript::add('plugins/shop/js/shop_backend.js','backend',30);
+	
     
 
     // Load Shop Admin for Editor and Admin

@@ -1,6 +1,11 @@
+<?php echo Html::anchor(__('Add Product', 'shop'),
+          'index.php?id=shop&action=add_product&token='.Security::token(),
+           array('class' => 'btn btn-primary btn-actions pull-right'));
+?>
+
 <h2><?php echo __('Shop', 'shop'); ?></h2>
 <br />
-<?php if(Notification::get('success')) Alert::success(Notification::get('success')); ?>
+<?php if(Notification::get('success')) Notification::get('success'); ?>
 <!-- Products_list -->
 <table class="table table-bordered table-condensed">
     <thead>
@@ -28,7 +33,7 @@
         <td>
             <?php echo Html::anchor(__('Edit', 'shop'),
                       'index.php?id=shop&action=edit_product&product_id='.$product['id'].'&token='.Security::token(),
-                       array('class' => 'btn btn-warning btn-actions'));
+                       array('class' => 'btn btn-info btn-actions'));
             ?>
         </td>
     </tr>

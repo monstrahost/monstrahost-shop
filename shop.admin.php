@@ -1,7 +1,7 @@
 <?php
 
 // Admin Navigation: add new item
-Navigation::add(__('Shop', 'shop'), 'content', 'shop', 4);
+Navigation::add(__('<i class=\'glyphicon glyphicon-shopping-cart\'></i>&nbsp;&nbsp;Easy Shop', 'shop'), 'content', 'shop', 20);
 
 // Add actions
 Action::add('admin_themes_extra_index_template_actions','ShopAdmin::formComponent');
@@ -47,16 +47,22 @@ class ShopAdmin extends Backend {
 			$item_id = Request::post('product_id');
 
 			$errors = array();
+			
+			$target_dir = "/public/uploads/";
 
 			if (Security::check(Request::post('csrf'))) {
 
-				if (Request::post('shop_title') == '' || Request::post('shop_image') == '' || Request::post('shop_description') == '' || !is_numeric(Request::post('shop_price'))) {
+				if ( $title == '' || !is_numeric($price)) {
+					Notification::setNow('errors', __('Price must be a number', 'shop'));
 					$errors['shop_empty_fields'] = __('There are invalid fields', 'shop');
+					
+					
 				}
 
 				if (count($errors) == 0) {
 					if (Request::post('item_id') == '') {
 						$shop->insert(array('title' => $title, 'image' => $image, 'description' => $description, 'price' => $price, 'shipping' => $shipping, 'shipping2' => $shipping2, 'sku' => $sku ));
+						Notification::set('success', __('New Item Saved', 'shop'));
 						Request::redirect('index.php?id=shop');
 					}
 					else {
@@ -71,17 +77,40 @@ class ShopAdmin extends Backend {
 								'sku'			=> Html::toText($sku),	
 
 							));
-						Notification::set('success', __('Item Saved', 'shop'));
+						Notification::set('success', __('Edited Item Saved', 'shop'));
 						Request::redirect('index.php?id=shop');
 					}
 
-				}
+				} 
 
 			} else { die('csrf detected!'); }
 
 		}
 
+
+		// New Product Creation
+		
+		if (Request::get('action') &&  Request::get('action') == 'add_product') {
+
+
+
+			if (Security::check(Request::get('token'))) {
+			
+			// Get form view
+			$shop_form = View::factory('shop/views/backend/form')
+
+			->display();
+
+
+
+			 
+			} else { die('csrf detected!'); }
+		}
+		
+		
+		
 		// Load product for editing
+		
 		if (Request::get('action') &&  Request::get('action') == 'edit_product' && Request::get('product_id')) {
 
 			$item = $shop->select('[id="'.Request::get('product_id').'"]', null);
@@ -95,11 +124,23 @@ class ShopAdmin extends Backend {
 			$item_id  = Request::get('product_id');
 
 			if (Security::check(Request::get('token'))) {
+			
+			// Get form view
+			$shop_form = View::factory('shop/views/backend/form')
+			->assign('title', $title)
+			->assign('image', $image)
+			->assign('description', $description)
+			->assign('price', $price)
+			->assign('shipping', $shipping)
+			->assign('shipping2', $shipping2)
+			->assign('sku', $sku)
+			->assign('item_id', $item_id)
+			->assign('errors', $errors)
+			->display();
 
 
 
-
-
+			 
 			} else { die('csrf detected!'); }
 		}
 
@@ -117,24 +158,13 @@ class ShopAdmin extends Backend {
 
 
 
-		// Get form view
-		$shop_form = View::factory('shop/views/backend/form')
-		->assign('title', $title)
-		->assign('image', $image)
-		->assign('description', $description)
-		->assign('price', $price)
-		->assign('shipping', $shipping)
-		->assign('shipping2', $shipping2)
-		->assign('sku', $sku)
-		->assign('item_id', $item_id)
-		->assign('errors', $errors)
-		->display();
 
+		if (Request::get('action') == '') {
 		// Display view
 		View::factory('shop/views/backend/index')
 		->assign('products', $products)
 		->display();
-
+		}
 
 
 	}

@@ -1,5 +1,22 @@
+<a href="/admin/index.php?id=shop" class="btn btn-default pull-right">Cancel</a>
 <h2><?php echo __('Add/Edit Product', 'shop'); ?></h2>
-<form method="post" role="form">
+
+
+    <?php if (count($errors) > 0) { ?>
+    <br />
+    <div class="alert alert-danger">
+    <ul>
+    <?php foreach($errors as $error) { ?>
+        <li><?php echo $error; ?></li>
+    <?php } ?>             
+    </ul>
+    </div>             
+    <?php } ?>
+    
+<?php if(Notification::get('errors')) Notification::get('errors'); ?>
+    
+    
+<form method="post" role="form" enctype="multipart/form-data">
     <?php echo (Form::hidden('csrf', Security::token())); ?>
     <input type="hidden" name="item_id" value="<?php echo $item_id; ?>" />
 
@@ -12,7 +29,7 @@
     <div class="row">
     <div class="col-md-4">
     <label for="shop_image"><?php echo __('Image', 'shop'); ?></label>
-    <input type="text" name="shop_image" class="form-control" value="<?php echo $image; ?>" />
+    <input type="file" name="shop_image" class="form-control" value="<?php echo $image; ?>" />
     <span class="help-block"><?php echo __('URL Format', 'shop'); ?></span>
     </div>
     <div class="col-md-2">
@@ -40,18 +57,7 @@
     <textarea class="form-control" id="editor_area" rows="10" name="shop_description"><?php echo $description; ?></textarea><br /><br />
     
     </div>
-
-    <?php if (count($errors) > 0) { ?>
-    <br />
-    <div class="alert alert-danger">
-    <ul>
-    <?php foreach($errors as $error) { ?>
-        <li><?php echo $error; ?></li>
-    <?php } ?>             
-    </ul>
-    </div>             
-    <?php } ?> 
-    <div class="form-group">
-    <input class="btn btn-block btn-lg btn-success" type="submit" value="<?php echo __('Save Product', 'shop'); ?>" name="save_product"/>
-    </div>
+	<div class="form-group">
+    <input class="btn btn-block btn-lg btn-success" type="submit" value="<?php echo __('Save Product', 'shop'); ?>" name="save_product" />
+	</div>
 </form>

@@ -27,3 +27,7 @@ Shipping is currently required by
 in frontend/index.view.php
 
 see https://developer.paypal.com/docs/classic/paypal-payments-standard/integration-guide/Appx_websitestandard_htmlvariables/#id08A6HH0D0TA
+
+### Known Issues
+
+Seems to not populate the editor-area under cleditor, works great with summernote
