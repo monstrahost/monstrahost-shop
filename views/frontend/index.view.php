@@ -1,15 +1,3 @@
-<nav class="navbar navbar-inverse" role="navigation">
-		<div class="container-fluid">
-        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" class="navbar-form navbar-right">
-            <div class="form-group">
-                <input type="hidden" name="business" value="<?php echo Snippet::get('paypal-address'); ?>">
-                <input type="hidden" name="cmd" value="_cart">
-                <input type="hidden" name="display" value="1">
-                <input type="submit" name="submit" value="View Cart" class="btn btn-block btn-warning">
-            </div>
-        </form>
-		</div>
-</nav>
 <div class="row">
 <?php foreach($products as $product) { ?>
 	<div class="col-md-4">
@@ -93,7 +81,9 @@
 <?php } ?>
 </div>
 
-
+<script>
+$( ".navbar-nav" ).append( "<form action='https://www.paypal.com/cgi-bin/webscr' method='post' class='navbar-form navbar-right'><div class='form-group'><input type='hidden' name='business' value='<?php echo Snippet::get('paypal-address'); ?>'><input type='hidden' name='cmd' value='_cart'><input type='hidden' name='display' value='1'><input type='submit' name='submit' value='View Cart' class='btn'></div></form>" );
+</script>
 
 
 <script src="//cdnjs.cloudflare.com/ajax/libs/minicart/3.0.5/minicart.min.js"></script>
