@@ -29,7 +29,7 @@
     <div class="row">
     <div class="col-md-4">
     <label for="shop_image"><?php echo __('Image', 'shop'); ?></label>
-    <input type="file" name="shop_image" class="form-control" value="<?php echo $image; ?>" />
+    <input type="text" name="shop_image" class="form-control" value="<?php echo $image; ?>" />
     <span class="help-block"><?php echo __('URL Format', 'shop'); ?></span>
     </div>
     <div class="col-md-2">
