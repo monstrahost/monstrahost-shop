@@ -6,7 +6,7 @@ Shop
 
 #### Create Snippets
 
-1. Create a snippet called 'paypal-address' and add the email address to which you want paypal payments sent. 
+1. Create a snippet called 'shop-paypal-address' and add the email address to which you want paypal payments sent. 
  
 2. Create a snippet called 'shop-currency' and add currency in style USD, RUR, EUR etc (only one allowed)
 
