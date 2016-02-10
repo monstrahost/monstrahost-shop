@@ -28,17 +28,22 @@
       </header>
       <section>
         <h1>
-<a id="shop" class="anchor" href="#shop" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Shop</h1>
+<a id="easy-shop" class="anchor" href="#easy-shop" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Easy Shop</h1>
+
+<p>This is a plugin for <a href="http://monstra.org">Monstra CMS</a> that implements a very simple javascript PayPal shopping cart called <a href="http://minicartjs.com">Minicart.js</a>. It creates products in Monstra's flatfile data storage with simple attributes of title, SKU, photo, price, shipping price, price to ship additional quantities of the same item, and long-text (html and markdown allowed) description. There is no inventory management. </p>
+
+<p>The cart is managed by Paypal and all order processing will be done <em>in your paypal account</em>. There is no 'backend' for order management with this plugin. The administration is used only to create products and display them on your website and then populate a paypal cart for checkout.</p>
 
 <h3>
 <a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h3>
 
 <h4>
-<a id="create-snippets" class="anchor" href="#create-snippets" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Create Snippets</h4>
+<a id="choose-currency-and-set-paypal-email" class="anchor" href="#choose-currency-and-set-paypal-email" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Choose Currency and Set Paypal Email</h4>
 
 <ol>
-<li><p>Create a snippet called 'paypal-address' and add the email address to which you want paypal payments sent. </p></li>
-<li><p>Create a snippet called 'shop-currency' and add currency in style USD, RUR, EUR etc (only one allowed)</p></li>
+<li>Go to Menu -&gt; System -&gt; Settings</li>
+<li>Choose your currency from the drop menu in Shop Settings</li>
+<li>Enter the email for your paypal account</li>
 </ol>
 
 <h4>
@@ -47,7 +52,7 @@
 <p>Menu -&gt; Shop</p>
 
 <ol>
-<li>Images must be uploaded via Menu -&gt; Files (copy &amp; paste image URL)</li>
+<li>Images must be uploaded via Menu -&gt; Content -&gt; Files (copy &amp; paste image URL into product editing page)</li>
 <li>No image resizing is done - optimize images before upload</li>
 </ol>
 
@@ -65,7 +70,11 @@
 <h3>
 <a id="known-issues" class="anchor" href="#known-issues" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Known Issues</h3>
 
-<p>Seems to not populate the editor-area under cleditor, works great with summernote</p>
+<ul>
+<li>The 'View Cart' modal doesn't look so hot on mobile devices. It probably needs to be rethemed.</li>
+<li>Uninstalling <em>deletes all product data</em>
+</li>
+</ul>
       </section>
     </div>
     <footer>
