@@ -6,7 +6,8 @@ Navigation::add(__('<i class=\'glyphicon glyphicon-shopping-cart\'></i>&nbsp;&nb
 // Add actions
 Action::add('admin_themes_extra_index_template_actions','ShopAdmin::formComponent');
 Action::add('admin_themes_extra_actions','ShopAdmin::formComponentSave');
-
+Action::add('admin_system_extra_index_template_actions','ShopAdmin::formShopAdmin');
+Action::add('admin_system_extra_index_template_actions','ShopAdmin::formShopAdminSave');
 
 class ShopAdmin extends Backend {
 
@@ -170,18 +171,7 @@ class ShopAdmin extends Backend {
 	}
 
 	/**
-	 * Form Component Save
-	 */
-	public static function formComponentSave() {
-		if (Request::post('shop_component_save')) {
-			Option::update('shop_template', Request::post('shop_form_template'));
-			Request::redirect('index.php?id=themes');
-		}
-	}
-
-
-	/**
-	 * Form Component
+	 * Form Component - Shop Theme Chooser
 	 */
 	public static function formComponent() {
 
@@ -197,5 +187,75 @@ class ShopAdmin extends Backend {
 			Form::close()
 		);
 	}
+	
+	/**
+	 * Form Component Save - Shop Theme Save Option
+	 */
+	public static function formComponentSave() {
+		if (Request::post('shop_component_save')) {
+			Option::update('shop_template', Request::post('shop_form_template'));
+			Request::redirect('index.php?id=themes');
+		}
+	}
+	
+
+	/**
+	 * Form Currency - Shop Currency Chooser
+	 */
+	public static function formShopAdmin() {
+		$currencies = array (
+						'USD' => 'USD',
+						'AUD' => 'AUD',
+						'BRL' => 'BRL',
+						'CAD' => 'CAD',
+						'CZK' => 'CZK',
+						'DKK' => 'DKK',
+						'EUR' => 'EUR',
+						'HKD' => 'HKD',
+						'ILS' => 'ILS',
+						'JPY' => 'JPY',
+						'MYR' => 'MYR',
+						'MXN' => 'MXN',
+						'NOK' => 'NOK',
+						'NZD' => 'NZD',
+						'PHP' => 'PHP',
+						'PLN' => 'PLN',
+						'GBP' => 'GBP',
+						'RUB' => 'RUB',
+						'SGD' => 'SGD',
+						'SEK' => 'SEK',
+						'CHF' => 'CHF',
+						'TWD' => 'TWD',
+						'THB' => 'THB',
+						'TRY' => 'TRY');
+		
+		echo (
+			'<h2><i class=\'glyphicon glyphicon-shopping-cart\'></i>&nbsp;&nbsp;Shop Settings</h2><hr /><div class="row"><div class="col-xs-6">'.
+			Form::open(null, array('class' => 'form form-horizontal')).
+			Form::label('shop_currency', __('Shop Currency', 'shop')).
+			Form::select('shop_currency', $currencies, Option::get('shop_currency'), array('class' => 'form-control')).
+			Form::label('shop_paypal', __('Email Address with Paypal Account', 'shop')).
+			Form::input('shop_paypal', Option::get('shop_paypal'), array('class' => 'form-control')).
+			Html::br().
+			Form::submit('shop_currency_save', __('Save', 'shop'), array('class' => 'btn btn-primary')).
+			Form::close().
+			
+			'</div></div>'
+		);
+	}
+
+	/**
+	 * Form Component Save - Shop Theme Save Option
+	 */
+	public static function formShopAdminSave() {
+		if (Request::post('shop_currency_save')) {
+			Option::update('shop_currency', Request::post('shop_currency'));
+			Option::update('shop_paypal', Request::post('shop_paypal'));
+			Request::redirect('index.php?id=system');
+		}
+	}
+
+
+
 
 }

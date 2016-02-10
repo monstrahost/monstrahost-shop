@@ -3,7 +3,7 @@
 	<div class="col-md-4">
 	<div class="thumbnail">
 	<div class="product-title"><?php echo Html::toText($product['title']); ?></div>
-	<span class="product-price"><?php echo Html::toText($product['price']); ?> <small><?php echo Snippet::get('shop-currency'); ?></small></span>
+	<span class="product-price"><?php echo Html::toText($product['price']); ?> <small><?php echo Option::get('shop_currency'); ?></small></span>
 	<img src="<?php echo Html::toText($product['image']); ?>" class="img-responsive" />
 	<br />	
 	<!-- Button trigger modal -->
@@ -16,13 +16,13 @@
 	<form method="post" action="https://www.paypal.com/cgi-bin/webscr">
 	<input type="hidden" name="cmd" value="_cart">
 	<input type="hidden" name="add" value="1">
-	<input type="hidden" name="business" value="<?php echo Snippet::get('shop-paypal-address'); ?>">
+	<input type="hidden" name="business" value="<?php echo Option::get('shop_paypal'); ?>">
 	<input type="hidden" name="item_name" value="<?php echo Html::toText($product['title']); ?>">
 	<input type="hidden" name="item_number" value="<?php echo Html::toText($product['sku']); ?>">
 	<input type="hidden" name="amount" value="<?php echo Html::toText($product['price']); ?>">
 	<input type="hidden" name="shipping" value="<?php echo Html::toText($product['shipping']); ?>">
 	<input type="hidden" name="shipping2" value="<?php echo Html::toText($product['shipping2']); ?>">
-	<input type="hidden" name="currency_code" value="<?php echo Snippet::get('shop-currency'); ?>">
+	<input type="hidden" name="currency_code" value="<?php echo Option::get('shop_currency'); ?>">
 	<input type="hidden" name="return" value="<?php echo Page::url(); ?>shop">
 	<input type="hidden" name="cancel_return" value="<?php echo Page::url(); ?>shop">
 	<input type="hidden" name="no_shipping" value="2">
@@ -43,7 +43,7 @@
 	        <h4 class="modal-title" id="productDetailTitle"><?php echo Html::toText($product['title']); ?></h4>
 	      </div>
 	      <div class="modal-body">
-	      	<span class="product-price"><?php echo Html::toText($product['price']); ?> <small><?php echo Snippet::get('shop-currency'); ?></small></span>
+	      	<span class="product-price"><?php echo Html::toText($product['price']); ?> <small><?php echo Option::get('shop_currency'); ?></small></span>
 	        <img src="<?php echo Html::toText($product['image']); ?>" class="img-responsive img-rounded" />
 	        <br />
 	        <div class="row">
@@ -53,15 +53,15 @@
 	        	<table class="table table-condensed table-striped table-bordered">
 	        		<tr>
 	        			<td><?php echo __('Price', 'shop'); ?></td>
-	        			<td><?php echo Html::toText($product['price']); ?> <small><?php echo Snippet::get('shop-currency'); ?></small></td>
+	        			<td><?php echo Html::toText($product['price']); ?> <small><?php echo Option::get('shop_currency'); ?></small></td>
 	        		</tr>
 	        		<tr>
 	        			<td><?php echo __('Shipping', 'shop'); ?></td>
-	        			<td><?php echo Html::toText($product['shipping']); ?> <small><?php echo Snippet::get('shop-currency'); ?></small></td>
+	        			<td><?php echo Html::toText($product['shipping']); ?> <small><?php echo Option::get('shop_currency'); ?></small></td>
 	        		</tr>
 	        		<tr>
 	        			<td><small><?php echo __('Shipping2', 'shop'); ?></small></td>
-	        			<td><?php echo Html::toText($product['shipping2']); ?> <small><?php echo Snippet::get('shop-currency'); ?></small></td>
+	        			<td><?php echo Html::toText($product['shipping2']); ?> <small><?php echo Option::get('shop_currency'); ?></small></td>
 	        		</tr>
 	        	</table>
 	        </div>
@@ -82,7 +82,7 @@
 </div>
 
 <script>
-$( ".navbar-nav" ).append( "<form action='https://www.paypal.com/cgi-bin/webscr' method='post' class='navbar-form navbar-right'><div class='form-group'><input type='hidden' name='business' value='<?php echo Snippet::get('paypal-address'); ?>'><input type='hidden' name='cmd' value='_cart'><input type='hidden' name='display' value='1'><input type='submit' name='submit' value='View Cart' class='btn'></div></form>" );
+$( ".navbar-nav" ).append( "<form action='https://www.paypal.com/cgi-bin/webscr' method='post' class='navbar-form navbar-right'><div class='form-group'><input type='hidden' name='business' value='<?php echo Option::get('shop_paypal'); ?>'><input type='hidden' name='cmd' value='_cart'><input type='hidden' name='display' value='1'><input type='submit' name='submit' value='View Cart' class='btn'></div></form>" );
 </script>
 
 
