@@ -2,9 +2,8 @@
 <?php foreach($products as $product) { ?>
 	<div class="col-md-4">
 	<div class="thumbnail">
-	<div class="product-title bg-primary"><?php echo Html::toText($product['title']); ?></div>
-	<span class="product-price bg-warning"><?php echo Html::toText($product['price']); ?> <small><?php echo Option::get('shop_currency'); ?></small></span>
-	<br />	
+	<div class="product-title bg-primary pull-left"><?php echo Html::toText($product['title']); ?></div>
+	<span class="product-price bg-warning pull-right"><?php echo Html::toText($product['price']); ?> <small><?php echo Option::get('shop_currency'); ?></small></span>
 	<!-- Button trigger modal -->
 	<a data-toggle="modal" data-target="#productDetail-<?php echo $product['id']; ?>" href="#productDetail-<?php echo $product['id']; ?>">
 		<img src="<?php echo Html::toText($product['image']); ?>" class="img-responsive" />

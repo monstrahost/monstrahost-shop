@@ -6,7 +6,7 @@
      *  @package Monstra
      *  @subpackage Plugins
      *  @author monstrahost
-     *  @version 0.1a
+     *  @version 0.3a
      *
      */
 
@@ -15,7 +15,7 @@
     Plugin::register( __FILE__,                    
                     __('Shop', 'shop'),
                     __('Shop plugin for Monstra', 'shop'),  
-                    '0.2a',
+                    '0.3a',
                     'MonstraHost',                 
                     'http://www.monstrahost.com/',
                     'shop');

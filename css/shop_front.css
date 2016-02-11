@@ -1,16 +1,10 @@
 .product-price {
-	position: absolute;
-	right: 20px;
-	float: right;
 	font-size: 1.1em;
 	padding: 0px 8px;
 	opacity: 0.8;
 }
 
 .product-title {
-	position: absolute;
-	left: 20px;
-	float: left;
 	font-size: 1.1em;
 	padding: 0px 8px;
 	opacity: 0.8;
@@ -28,10 +22,6 @@
     min-height: 100%;
     height: auto;
     border-radius: 0;
-}
-
-.modal-body .product-image {
-	max-height: 40%;
 }
 
 .modal-header .btn {
